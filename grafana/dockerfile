@@ -1,6 +1,6 @@
 ARG VERSION=11.5.2
-
 FROM grafana/grafana-oss:${VERSION}
 
-# copy the datasources and dashboards
-COPY datasources /etc/grafana/provisioning/datasources
+# Вказуємо повний шлях до папок у репозиторії
+COPY grafana/datasources /etc/grafana/provisioning/datasources
+COPY grafana/dashboards /etc/grafana/provisioning/dashboards
