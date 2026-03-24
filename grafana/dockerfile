@@ -1,9 +1,8 @@
 ARG VERSION=11.5.2
 FROM grafana/grafana-oss:${VERSION}
 
-# Вказуємо повний шлях до папок у репозиторії
-COPY grafana/datasources /etc/grafana/provisioning/datasources
-COPY grafana/dashboards /etc/grafana/provisioning/dashboards
+# Копіюємо тільки те, що точно є, і додаємо анонімний вхід
+COPY grafana/datasources* /etc/grafana/provisioning/datasources/
 
 ENV GF_AUTH_ANONYMOUS_ENABLED=true
 ENV GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
